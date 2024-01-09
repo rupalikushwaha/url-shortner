@@ -1,0 +1,44 @@
+/* Declaring variables to root */
+:root {
+  --fontFamily: Consolas;
+  --hoverBorder: rgb(1, 71, 163);
+  --itemColor: rgb(82, 82, 82);
+  --headerColor: rgb(68, 115, 177);
+  --backgroundColor: rgb(255, 255, 255);
+  --borderColor: rgb(110, 110, 110);
+  --buttonColor: rgb(68, 115, 177);
+  --successNotifyColor: rgb(255, 94, 0);
+  --errorNotifyColor: rgb(187, 40, 33);
+  --primaryColor: rgb(255, 94, 1);
+}
+
+/* TO CUSTOMIZE TOASTR NOTIFICATIONS */
+#toast-container>div.toast {
+  opacity: 1;
+}
+
+.toast-success {
+  background-color: var(--successNotifyColor);
+}
+
+.toast-error {
+  background-color: var(--errorNotifyColor);
+
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--fontFamily);
+}
+
+body {
+  margin: 0;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}

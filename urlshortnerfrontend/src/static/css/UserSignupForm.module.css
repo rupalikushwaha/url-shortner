@@ -1,0 +1,116 @@
+/* -------------HOVER CLASSES--------------- */
+form>input:hover {
+    border: 1px solid var(--primaryColor);
+}
+
+form a:hover {
+    color: var(--primaryColor);
+}
+
+form>input:focus {
+    border: 1px solid var(--primaryColor);
+}
+
+.submitBtn:hover {
+    border: 2px solid var(--primaryColor);
+    color: var(--primaryColor);
+    font-weight: 900;
+    background-color: white;
+}
+
+.container {
+    background-image: url(/src/static/images/background.avif);
+    background-color: rgb(233, 233, 233);
+    box-sizing: border-box;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ------------------------FORM-------------------------- */
+
+form {
+    border-radius: 10px;
+    width: 420px;
+    padding-left: 10px;
+    height: 75vh;
+    /* border: 2px solid green; */
+    box-shadow: 0 0px 50px 10px;
+    background-color: rgba(255, 255, 255, 0.377);
+}
+
+.loginForm {
+    height: 50vh;
+
+}
+
+.heading {
+    margin-top: 10px;
+    font-size: 1.5rem;
+    cursor: default;
+    text-align: center;
+    color: var(--primaryColor);
+    font-weight: 700;
+
+}
+
+form>p {
+    margin-top: 10px;
+    text-align: center;
+}
+
+form a {
+    text-decoration: none;
+    font-weight: 700;
+    color: grey;
+}
+
+label {
+    font-weight: 500;
+    margin-top: 10px;
+    display: block;
+    color: rgb(75, 75, 75);
+}
+
+form>input {
+    display: block;
+    border: 1px solid var(--borderColor);
+    outline: none;
+    height: 40px;
+    border-radius: 10px;
+    padding-left: 5px;
+    width: 400px;
+    margin-top: 5px;
+}
+
+.submitBtn {
+    margin-top: 10px;
+    /* width: 405px; */
+    border: 1px solid var(--primaryColor);
+    padding-left: 0px;
+    color: white;
+    background-color: var(--primaryColor);
+}
+
+
+@media only screen and (max-width: 768px) {
+    .root {
+        width: 100vw;
+        height: 90vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    form {
+        width: 90vw;
+    }
+
+    form>input {
+        width: 90vw;
+    }
+
+
+}

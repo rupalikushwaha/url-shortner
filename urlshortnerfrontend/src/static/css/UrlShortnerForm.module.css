@@ -1,0 +1,51 @@
+/* -------------------HOVER CLASSES----------------------- */
+.submitBtn:hover {
+    border: 2px solid var(--primaryColor);
+    color: var(--primaryColor);
+    background-color: white;
+    font-weight: 800;
+}
+
+.urlInput:hover,
+.urlInput:focus {
+    border: 1px solid var(--primaryColor);
+
+}
+
+
+/* ----------------------FORM--------------- */
+.UrlShortnerForm {
+    width: 500px;
+    height: 250px;
+    background-color: rgba(255, 255, 255, 0.377);
+    position: relative;
+    top: -50px;
+}
+
+.UrlShortnerForm>p {
+    margin-top: 10px;
+    font-size: 2rem;
+    color: var(--primaryColor);
+    font-weight: 700;
+    text-shadow: 10px 2px 5px;
+}
+
+.urlInput {
+    width: 480px;
+    border-radius: 10px;
+    margin-top: 15px;
+    padding-left: 5px;
+    padding-top: 2px;
+
+    height: 100px;
+}
+
+.submitBtn {
+    cursor: pointer;
+    margin-top: 20px;
+    border: none;
+    width: 480px;
+    height: 40px;
+    background-color: var(--primaryColor);
+    color: white;
+}

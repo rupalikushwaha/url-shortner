@@ -1,0 +1,372 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Url Shortner API",
+        "description": "API for shortening the urls into short codes.",
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:6300",
+            "description": "Local development server"
+        }
+    ],
+    "components": {
+        "securitySchemes": {
+            "bearerAuth": {
+                "type": "http",
+                "scheme": "bearer",
+                "bearerFormat": "JWT"
+            }
+        }
+    },
+    "paths": {
+        "/api/v1/users/create": {
+            "post": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Sign Up",
+                "description": "Create a new user",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "email": {
+                                        "type": "string"
+                                    },
+                                    "password": {
+                                        "type": "string"
+                                    },
+                                    "confirm_password": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        },
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "email": {
+                                        "type": "string"
+                                    },
+                                    "password": {
+                                        "type": "string"
+                                    },
+                                    "confirm_password": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Created"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },"409": {
+                        "description": "Conflict"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/api/v1/users/create-session": {
+            "post": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Sign In",
+                "description": "User login to get token",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "email": {
+                                        "type": "string"
+                                    },
+                                    "password": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        },
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "email": {
+                                        "type": "string"
+                                    },
+                                    "password": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    },
+                    "401": {
+                        "description": "unauthorized"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/api/v1/users/update": {
+            "patch": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Update",
+                "description": "to update the details of a user",
+                "security":[
+                    {"bearerAuth":[]}
+
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "email": {
+                                        "type": "string"
+                                    },
+                                    "password": {
+                                        "type": "string"
+                                    },
+                                    "new_password": {
+                                        "type": "string"
+                                    },
+                                    "confirm_password": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        },
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "email": {
+                                        "type": "string"
+                                    },
+                                    "new_password": {
+                                        "type": "string"
+                                    },
+                                    "confirm_password": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "202": {
+                        "description": "success"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },"401": {
+                        "description": "Unauthorized"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/api/v1/users/destroy": {
+            "delete": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Delete",
+                "description": "to delete a user",
+                "security":[
+                    {"bearerAuth":[]}
+
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "password":{"type":"string"}
+                                }
+                            }
+                        },
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "password":{"type":"string"}
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "204": {
+                        "description": "Successful deletion"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/api/v1/urls/shorten": {
+            "post": {
+                "tags": [
+                    "Urls"
+                ],
+                "summary": "Shorten",
+                "description": "to get a short code against a big url",
+                "security":[
+                    {"bearerAuth":[]}
+
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "url":{"type":"string"}
+                                }
+                            }
+                        },
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "url":{"type":"string"}
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200":{"description":"Already Existed"
+                },
+                    "201": {
+                        "description": "Successful creation"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "400": {
+                        "description": "Invalid Url"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/api/v1/urls/{code}": {
+            "get": {
+                "tags": [
+                    "Urls"
+                ],
+                "parameters":[{
+                    "name":"code",
+                    "in":"path",
+                    "description":"Short code to get the original Url",
+                    "required":true,
+                    "schema":{"type":"string"}
+                }],
+                "summary": "Redirect",
+                "description": "To get the original Url from short code",
+                "responses": {
+                    "200":{"description":"Successful fetch"
+                },
+                    "404": {
+                        "description": "Invalid Code"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/{code}": {
+            "get": {
+              "tags": [
+                "Redirect"
+              ],
+              "parameters": [
+                {
+                  "name": "code",
+                  "in": "path",
+                  "description": "Short code to redirect to the original URL",
+                  "required": true,
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              ],
+              "summary": "Redirect (Non-JSON Response)",
+              "description": "Redirects to the original URL. This endpoint does not return a JSON response and is not intended for direct API usage.",
+              "responses": {
+                "200": {
+                  "description": "Successful redirection (HTML response)"
+                },
+                "404": {
+                  "description": "Invalid Code (HTML response)"
+                },
+                "500": {
+                  "description": "Internal Server Error (HTML response)"
+                }
+              },
+              "x-swagger-router-controller": "YourController",
+              "x-swagger-pipe": "YourPipe"
+            }
+          }
+
+    }
+}
